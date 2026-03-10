@@ -1,0 +1,20 @@
+services:
+  app:
+    image: ghcr.io/kimdre/doco-cd:0.72.1
+    ports:
+      - "8080:80"
+    environment:
+      TZ: Europe/Berlin
+      POLL_CONFIG: |
+        - url: ${infra_repo_url}
+          reference: main
+          interval: 30
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - data:/data
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+
+volumes:
+  data:

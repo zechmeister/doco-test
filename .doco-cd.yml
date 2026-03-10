@@ -1,1 +1,5 @@
 name: hello
+working_dir: hello/
+---
+name: doco-cd
+working_dir: doco-cd/
