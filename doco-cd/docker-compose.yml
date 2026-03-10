@@ -6,7 +6,7 @@ services:
     environment:
       TZ: Europe/Berlin
       POLL_CONFIG: |
-        - url: ${infra_repo_url}
+        - url: https://github.com/zechmeister/doco-test.git
           reference: main
           interval: 30
     volumes:
